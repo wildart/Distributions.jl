@@ -48,3 +48,6 @@ std(d::Normal) = d.std
 var(d::Normal) = d.std^2
 
 fit{T <: Real}(::Type{Normal}, x::Array{T}) = Normal(mean(x), std(x))
+
+scale(d::Normal) = 1.0
+location(d::Normal) = 0.0

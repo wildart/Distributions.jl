@@ -63,3 +63,6 @@ function var(d::BetaPrime)
         error("var not defined when beta <= 2")
     end
 end
+
+scale(d::BetaPrime) = 1.0
+location(d::BetaPrime) = 0.0

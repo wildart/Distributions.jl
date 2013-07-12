@@ -40,3 +40,6 @@ function var(d::TDist)
 		return NaN
 	end
 end
+
+scale(d::TDist) = 1.0
+location(d::TDist) = 0.0

@@ -71,3 +71,6 @@ function fit{T <: Real}(::Type{EmpiricalUnivariateDistribution},
 	                    x::Vector{T})
 	EmpiricalUnivariateDistribution(x)
 end
+
+scale(d::EmpiricalUnivariateDistribution) = 1.0
+location(d::EmpiricalUnivariateDistribution) = 0.0

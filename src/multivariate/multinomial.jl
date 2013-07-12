@@ -89,11 +89,20 @@ function logpdf{T <: Real}(d::Multinomial, x::Vector{T})
     end
 end
 
+function setrand!(a, b)
+    global c1, c2
+    c1 = a
+    c2 = b
+end
+
+c1 = 1_000
+c2 = 1_000
+
 function rand!(d::Multinomial, x::Vector)
     k = length(d.prob)
     fill!(x, 0)
     # TODO: Decide on cutoffs
-    if k < 1_000 && d.n > 1_000
+    if k < c1 && d.n > c2
         # Switch to sequential binomial sampling for very large of draws in one vector
         n = d.n
         l = length(d.prob)

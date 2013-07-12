@@ -55,3 +55,6 @@ end
 skewness(d::Erlang) = skewness(d.nested_gamma)
 
 var(d::Erlang) = d.scale^2 * d.shape
+
+scale(d::Erlang) = 1.0
+location(d::Erlang) = 0.0

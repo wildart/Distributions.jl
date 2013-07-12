@@ -83,3 +83,6 @@ end
 mustart(d::Poisson, y::Real, wt::Real) = y + 0.1
 
 var(d::Poisson, mu::Real) = mu
+
+scale(d::Poisson) = 1.0
+location(d::Poisson) = 0.0

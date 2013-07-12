@@ -122,6 +122,8 @@ export                                  # types
     validmu,       # validity check on mean vector
     var            # variance of distribution
 
+export scale, location, relocate, rescale, mix, truncate, LocationScaleFamily
+
 import Base.mean, Base.median, Base.quantile
 import Base.rand, Base.std, Base.var, Base.cor, Base.cov
 import Base.show, Base.sprand
@@ -227,5 +229,11 @@ include("kde.jl")
 
 # Expectations, entropy, KL divergence
 include("functionals.jl")
+
+# Location-scale families
+include("locationscale.jl")
+
+# Combinators
+include("combinators.jl")
 
 end # module

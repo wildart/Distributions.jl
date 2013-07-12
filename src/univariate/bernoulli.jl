@@ -72,6 +72,9 @@ function fit(::Type{Bernoulli}, x::Array)
     return Bernoulli(mean(x))
 end
 
+scale(d::Bernoulli) = 1.0
+location(d::Bernoulli) = 0.0
+
 # GLM methods
 function devresid(d::Bernoulli, y::Real, mu::Real, wt::Real)
     2wt * (xlogxdmu(y, mu) + xlogxdmu(1.0 - y, 1.0 - mu))

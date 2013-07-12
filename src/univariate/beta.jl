@@ -85,3 +85,6 @@ function fit(::Type{Beta}, x::Array)
     b = (1.0 - x_bar) * (((x_bar * (1.0 - x_bar)) / v_bar) - 1.0)
     return Beta(a, b)
 end
+
+scale(d::Beta) = 1.0
+location(d::Beta) = 0.0

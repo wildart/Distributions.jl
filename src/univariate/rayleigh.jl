@@ -46,3 +46,6 @@ rand(d::Rayleigh) = d.scale * sqrt(-2.0 * log(rand()))
 skewness(d::Rayleigh) = (2.0 * sqrt(pi) * (pi - 3.0)) / (4.0 - pi)^1.5
 
 var(d::Rayleigh) = d.scale^2 * (2.0 - pi / 2.0)
+
+scale(d::Rayleigh) = 1.0
+location(d::Rayleigh) = 0.0

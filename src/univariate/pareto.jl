@@ -60,3 +60,6 @@ function var(d::Pareto)
         return (d.shape^2 * d.scale) / ((d.scale - 1.0)^2 * (d.scale - 2.0))
     end
 end
+
+scale(d::Pareto) = 1.0
+location(d::Pareto) = 0.0

@@ -43,3 +43,6 @@ rand(d::Skellam) = rand(Poisson(d.mu1)) - rand(Poisson(d.mu2))
 skewness(d::Skellam) = (d.mu1 - d.mu2) / (d.mu1 + d.mu2)^1.5
 
 var(d::Skellam) = d.mu1 + d.mu2
+
+scale(d::Skellam) = 1.0
+location(d::Skellam) = 0.0

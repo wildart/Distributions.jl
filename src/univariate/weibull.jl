@@ -61,3 +61,6 @@ function skewness(d::Weibull)
 end
 
 var(d::Weibull) = d.scale^2 * gamma(1.0 + 2.0 / d.shape) - mean(d)^2
+
+scale(d::Weibull) = 1.0
+location(d::Weibull) = 0.0

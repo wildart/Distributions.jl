@@ -64,3 +64,6 @@ rand(d::Arcsine) = sin(rand() * pi / 2.0)^2
 skewness(d::Arcsine) = 0.0
 
 var(d::Arcsine) = 1.0 / 8.0
+
+scale(d::Arcsine) = 1.0
+location(d::Arcsine) = 0.0

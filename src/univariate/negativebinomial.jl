@@ -33,3 +33,6 @@ function cf(d::NegativeBinomial, t::Real)
     r, p = d.size, d.prob
     return ((1.0 - p) * exp(im * t))^r / (1.0 - p * exp(im * t))^r
 end
+
+scale(d::NegativeBinomial) = 1.0
+location(d::NegativeBinomial) = 0.0

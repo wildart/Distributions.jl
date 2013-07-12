@@ -2,6 +2,8 @@ abstract TruncatedContinuousUnivariateDistribution <: ContinuousUnivariateDistri
 abstract TruncatedDiscreteUnivariateDistribution <: DiscreteUnivariateDistribution
 typealias TruncatedUnivariateDistribution Union(TruncatedContinuousUnivariateDistribution, TruncatedDiscreteUnivariateDistribution)
 
+# TODO: Implement generic truncated distribution again
+
 macro truncate(dname::Any)
     new_dname = esc(symbol(string("Truncated", string(dname))))
     # TODO: Are we not supposed to run eval() in a macro?

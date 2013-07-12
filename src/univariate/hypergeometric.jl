@@ -36,3 +36,6 @@ function var(d::HyperGeometric)
 	p = d.ns / N
 	return d.n * p * (1.0 - p) * (N - d.n) / (N - 1.0)
 end
+
+scale(d::HyperGeometric) = 1.0
+location(d::HyperGeometric) = 0.0

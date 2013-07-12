@@ -106,3 +106,6 @@ function fit(::Type{Exponential}, x::Array)
     end
     return Exponential(mean(x))
 end
+
+scale(d::Exponential) = 1.0
+location(d::Exponential) = 0.0

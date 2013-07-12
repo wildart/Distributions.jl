@@ -73,3 +73,6 @@ end
 skewness(d::Chisq) = sqrt(8.0 / d.df)
 
 var(d::Chisq) = 2.0 * d.df
+
+scale(d::Chisq) = 1.0
+location(d::Chisq) = 0.0

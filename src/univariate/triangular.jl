@@ -85,3 +85,6 @@ function skewness(d::Triangular)
 end
 
 var(d::Triangular) = d.scale^2 / 6.0
+
+scale(d::Triangular) = 1.0
+location(d::Triangular) = 0.0

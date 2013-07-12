@@ -46,3 +46,6 @@ function fit{T <: Real}(::Type{logNormal}, x::Array{T})
     lx = log(x)
     return logNormal(mean(lx), std(lx))
 end
+
+scale(d::logNormal) = d.sdlog
+location(d::logNormal) = d.meanlog

@@ -59,3 +59,6 @@ function fit(::Type{Binomial}, x::Real, n::Real)
     end
     return Binomial(int(n), x / n)
 end
+
+scale(d::Binomial) = 1.0
+location(d::Binomial) = 0.0

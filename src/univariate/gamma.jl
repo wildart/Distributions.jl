@@ -117,3 +117,6 @@ function fit(::Type{Gamma}, x::Array)
 
     Gamma(a_new, mean(x) / a_new)
 end
+
+scale(d::Gamma) = 1.0
+location(d::Gamma) = 0.0

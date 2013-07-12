@@ -14,3 +14,6 @@ end
 @_jl_dist_3p NoncentralF nf
 
 insupport(d::logNormal, x::Number) = isreal(x) && isfinite(x) && 0.0 <= x
+
+scale(d::NoncentralF) = 1.0
+location(d::NoncentralF) = 0.0

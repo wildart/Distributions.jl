@@ -43,3 +43,6 @@ function fit{T <: Real}(::Type{Cauchy}, x::Array{T})
 	l, u = iqr(x)
 	return Cauchy(c, (u - l) / 2.0)
 end
+
+scale(d::Cauchy) = d.scale
+location(d::Cauchy) = d.location

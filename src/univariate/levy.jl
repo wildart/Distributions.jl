@@ -58,3 +58,6 @@ end
 skewness(d::Levy) = NaN
 
 var(d::Levy) = Inf
+
+scale(d::Levy) = d.scale
+location(d::Levy) = d.location

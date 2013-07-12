@@ -32,3 +32,6 @@ skewness(d::Logistic) = 0.0
 std(d::Logistic) = pi * d.scale / sqrt(3.0)
 
 var(d::Logistic) = (pi * d.scale)^2 / 3.0
+
+scale(d::Logistic) = d.scale
+location(d::Logistic) = d.location

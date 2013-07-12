@@ -9,6 +9,7 @@ function AliasTable(probs)
     accept = float64(probs*n)
 
     alias = Array(Int,n)
+    fill!(alias, -999)
     larges = Array(Int,0)
     smalls = Array(Int,0)
 

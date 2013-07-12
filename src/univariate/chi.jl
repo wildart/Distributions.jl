@@ -43,3 +43,6 @@ function entropy(d::Chi)
 	return lgamma(k / 2.0) - log(sqrt(2.0)) -
 	       ((k - 1.0) / 2.0) * digamma(k / 2.0) + k / 2.0
 end
+
+scale(d::Chi) = 1.0
+location(d::Chi) = 0.0

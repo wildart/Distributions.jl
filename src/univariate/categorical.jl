@@ -103,3 +103,7 @@ function fit{T <: Real}(::Type{Categorical}, x::Array{T})
     # Counts for all categories
     return Categorical()
 end
+
+scale(d::Categorical) = 1.0
+location(d::Categorical) = 0.0
+

@@ -97,3 +97,6 @@ function var(d::InvertedGamma)
 		error("Variance only defined if shape > 2")
 	end
 end
+
+scale(d::InvertedGamma) = 1.0
+location(d::InvertedGamma) = 0.0

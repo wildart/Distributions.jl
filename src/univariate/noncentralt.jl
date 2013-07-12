@@ -13,3 +13,6 @@ end
 @_jl_dist_2p NoncentralT nt
 
 insupport(d::NoncentralT, x::Number) = isreal(x) && isfinite(x)
+
+scale(d::NoncentralT) = 1.0
+location(d::NoncentralT) = 0.0

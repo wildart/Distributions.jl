@@ -72,3 +72,6 @@ var(d::DiscreteUniform) = ((d.b - d.a + 1.0)^2 - 1.0) / 12.0
 function fit{T <: Real}(::Type{DiscreteUniform}, x::Array{T})
     DiscreteUniform(min(x), max(x))
 end
+
+scale(d::DiscreteUniform) = 1.0
+location(d::DiscreteUniform) = 0.0

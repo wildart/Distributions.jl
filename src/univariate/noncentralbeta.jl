@@ -2,7 +2,7 @@ immutable NoncentralBeta <: ContinuousUnivariateDistribution
     alpha::Float64
     beta::Float64
     ncp::Float64
-    function NonCentralBeta(a::Real, b::Real, nc::Real)
+    function NoncentralBeta(a::Real, b::Real, nc::Real)
     	if a > 0.0 && b > 0.0 && nc >= 0.0
     		new(float64(a), float64(b), float64(nc))
     	else
@@ -12,3 +12,6 @@ immutable NoncentralBeta <: ContinuousUnivariateDistribution
 end
 
 @_jl_dist_3p NoncentralBeta nbeta
+
+scale(d::NoncentralBeta) = 1.0
+location(d::NoncentralBeta) = 0.0

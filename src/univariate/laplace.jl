@@ -78,3 +78,6 @@ function fit(::Type{Laplace}, x::Array)
     b = deviations / n
     Laplace(a, b)
 end
+
+scale(d::Laplace) = d.scale
+location(d::Laplace) = d.location

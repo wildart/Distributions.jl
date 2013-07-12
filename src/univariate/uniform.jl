@@ -48,3 +48,6 @@ end
 function fit{T <: Real}(::Type{Uniform}, x::Vector{T})
 	Uniform(min(x), max(x))
 end
+
+scale(d::Uniform) = 1.0
+location(d::Uniform) = 0.0

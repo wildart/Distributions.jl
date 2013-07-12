@@ -52,3 +52,6 @@ rand(d::Cosine) = sin(rand() * pi / 2.0)^2
 skewness(d::Cosine) = 0.0
 
 var(d::Cosine) = (pi^2 - 8.0) / (4.0 * pi^2)
+
+scale(d::Cosine) = 1.0
+location(d::Cosine) = 0.0

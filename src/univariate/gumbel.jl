@@ -46,3 +46,6 @@ rand(d::Gumbel) = d.mu - d.beta * log(-log(rand()))
 skewness(d::Gumbel) = 12.0 * sqrt(6.0) * zeta(3.0) / pi^3
 
 var(d::Gumbel) = pi^2 / 6.0 * d.beta^2
+
+scale(d::Gumbel) = 1.0
+location(d::Gumbel) = 0.0

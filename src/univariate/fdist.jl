@@ -57,3 +57,6 @@ entropy(d::FDist) = (log(d.ddf) -log(d.ndf)
                      +lgamma(0.5*d.ndf) +lgamma(0.5*d.ddf) -lgamma(0.5*(d.ndf+d.ddf)) 
                      +(1.0-0.5*d.ndf)*digamma(0.5*d.ndf) +(-1.0-0.5*d.ddf)*digamma(0.5*d.ddf)
                      +0.5*(d.ndf+d.ddf)*digamma(0.5*(d.ndf+d.ddf)))
+
+scale(d::FDist) = 1.0
+location(d::FDist) = 0.0
