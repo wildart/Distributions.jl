@@ -5,32 +5,31 @@ immutable Normal <: ContinuousUnivariateDistribution
     	sd > zero(sd) || error("std must be positive")
     	new(float64(mu), float64(sd))
     end
-    Normal(mu::Real) = new(float64(mu), 1.0)
-    Normal() = new(0.0, 1.0)
 end
+Normal(mu::Real) = Normal(float64(mu), 1.0)
+Normal() = Normal(0.0, 1.0)
 
 @_jl_dist_2p Normal norm
 
-@Base.math_const twopi 6.283185307179586 big(2.)*pi
-@Base.math_const log2pi 1.8378770664093456 log(big(twopi))
-@Base.math_const sqrt2pi 2.5066282746310007 sqrt(big(twopi))
-@Base.math_const logsqrt2pi 0.9189385332046728 0.5*big(log2pi)
-
-zval(d::Normal, x::Real) = (x - d.μ)/d.σ
-
-phi{T<:FloatingPoint}(z::T) = exp(-0.5*z*z)/sqrt2pi
-
-logphi{T<:FloatingPoint}(z::T) = -(0.5*z*z + logsqrt2pi)
-
-pdf(d::Normal, x::FloatingPoint) = phi(zval(d,x))/d.σ
-pdf(d::Normal, x::Integer) = pdf(d, float64(x))
-
-logpdf(d::Normal, x::FloatingPoint) = logphi(zval(d,x)) - log(d.σ)
-logpdf(d::Normal, x::Integer) = logphi(zval(d,float64(x))) - log(d.σ)
+@Base.math_const twoπ   6.283185307179586  big(2.)*π
+@Base.math_const log2π  1.8378770664093456 log(big(2.)*π)
+@Base.math_const √2π    2.5066282746310007 sqrt(big(2.)*π)
 
 const Gaussian = Normal
 
-entropy(d::Normal) = logsqrt2pi + 0.5 + log(d.σ)
+begin
+    zval(d::Normal, x::Real) = (x - d.μ)/d.σ
+    φ{T<:FloatingPoint}(z::T) = exp(-0.5*z*z)/√2π
+    logφ{T<:FloatingPoint}(z::T) = -0.5*(z*z + log2π)
+
+    pdf(d::Normal, x::FloatingPoint) = φ(zval(d,x))/d.σ
+    pdf(d::Normal, x::Integer) = pdf(d, float64(x))
+
+    logpdf(d::Normal, x::FloatingPoint) = logφ(zval(d,x)) - log(d.σ)
+    logpdf(d::Normal, x::Integer) = logpdf(d, float64(x))
+end
+
+entropy(d::Normal) = log2π + 0.5 + log(d.σ)
 
 insupport(d::Normal, x::Real) = isfinite(x)
 
