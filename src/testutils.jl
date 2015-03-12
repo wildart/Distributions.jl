@@ -290,8 +290,8 @@ function test_range_evaluation(d::DiscreteUnivariateDistribution)
         @test isa(vmax, Integer)
     end
 
-    rmin = int(islowerbounded(d) ? vmin : quantile(d, 0.001))::Int
-    rmax = int(isupperbounded(d) ? vmax : quantile(d, 0.999))::Int
+    rmin = round(Int, islowerbounded(d) ? vmin : quantile(d, 0.001))::Int
+    rmax = round(Int, isupperbounded(d) ? vmax : quantile(d, 0.999))::Int
 
     p0 = pdf(d, collect(rmin:rmax))
     @test_approx_eq pdf(d, rmin:rmax) p0
@@ -421,7 +421,7 @@ end
 function test_stats(d::DiscreteUnivariateDistribution, vs::AbstractVector)
     # using definition (or an approximation)
 
-    vf = float64(vs)
+    @compat vf = map(Float64, vs)
     p = pdf(d, vf)
     xmean = dot(p, vf)
     xvar = dot(p, abs2(vf .- xmean))
